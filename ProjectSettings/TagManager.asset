@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Block
+  - OnLine
+  - OnLine1
+  - OnLine2
+  - OnLine3
+  - OnLine4
+  - OnLine5
+  - OnLine6
+  - OnLine7
+  - OnLine8
+  - OnLine9
+  - OnLine10
+  - OnLine11
+  - OnLine12
+  - OnLine13
+  - OnLine14
+  - OnLine15
+  - OnLine16
+  - OnLine17
+  - OnLine18
+  - OnLine19
+  - OnLine20
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
