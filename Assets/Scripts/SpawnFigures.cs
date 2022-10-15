@@ -5,16 +5,15 @@ using UnityEngine;
 public class SpawnFigures : MonoBehaviour
 {    
     public GameObject[] figures;
-    
     public float spawnTime;
+    public float scaleValue;
         
     private GameObject figure;
     private GameObject block;
-    
     private float randomColour;
-
     private bool isSpawn = false;
     private bool isSpeedIncrease = false;
+    private Vector3 scaleVector;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +21,7 @@ public class SpawnFigures : MonoBehaviour
         // Spawn first figure
         Invoke("Spawn", 0);
         isSpawn = true;
+        scaleVector = new Vector3(1f * scaleValue, 1f * scaleValue, 0);
     }
 
     // Update is called once per frame
@@ -45,7 +45,8 @@ public class SpawnFigures : MonoBehaviour
     //Spawn random figure in time interval
     void Spawn()
     {
-        figure = Instantiate(figures[Random.Range(0, 7)], new Vector3(5, 20, 0), Quaternion.Euler(0, 0, 1));
+        figure = Instantiate(figures[Random.Range(0, 7)], new Vector3(5, 20, 0), Quaternion.identity);
+        figure.transform.localScale = scaleVector;
 
         //Painting instanciated figure
         randomColour = Random.Range(0f, 1f);
