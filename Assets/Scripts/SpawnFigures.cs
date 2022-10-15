@@ -3,24 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnFigures : MonoBehaviour
-{
-    public GameObject figureC;
-    public GameObject figureI;
-    public GameObject figureZ1;
-    public GameObject figureZ2;
-    public GameObject figureL1;
-    public GameObject figureL2;
-    public GameObject figureT;
+{    
+    public GameObject[] figures;
     
     public float spawnTime;
         
-    private GameObject randomFigure;
-    private GameObject figureOfColour;
-    private GameObject blockOfColour;
+    private GameObject figure;
+    private GameObject block;
     
     private float randomColour;
-
-    private int randomFigureNumber;
 
     private bool isSpawn = false;
     private bool isSpeedIncrease = false;
@@ -54,39 +45,14 @@ public class SpawnFigures : MonoBehaviour
     //Spawn random figure in time interval
     void Spawn()
     {
-        //Choose random figure type
-        randomFigureNumber = Random.Range(0, 7);
-        switch (randomFigureNumber)
-        {
-            case 0: 
-                randomFigure = figureC;
-                break;
-            case 1:
-                randomFigure = figureI;
-                break;
-            case 2:
-                randomFigure = figureZ1;
-                break;
-            case 3:
-                randomFigure = figureZ2;
-                break;
-            case 4:
-                randomFigure = figureL1;
-                break;
-            case 5:
-                randomFigure = figureL2;
-                break;
-            case 6:
-                randomFigure = figureT;
-                break;
-        }
-        figureOfColour = Instantiate(randomFigure, new Vector3(5, 20, 0), Quaternion.Euler(0, 0, 1));
+        figure = Instantiate(figures[Random.Range(0, 7)], new Vector3(5, 20, 0), Quaternion.Euler(0, 0, 1));
+
         //Painting instanciated figure
         randomColour = Random.Range(0f, 1f);
-        for (int i = 0; i < figureOfColour.transform.childCount; i++)
+        for (int i = 0; i < figure.transform.childCount; i++)
         {
-            blockOfColour = figureOfColour.transform.GetChild(i).gameObject;
-            blockOfColour.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(randomColour, 0.5f, 0.75f);
+            block = figure.transform.GetChild(i).gameObject;
+            block.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(randomColour, 0.5f, 0.75f);
         }
         isSpawn = false; //To start a new spawn cycle
     }

@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class UILogic : MonoBehaviour
 {
-
     public static UILogic instance;
-    
+
     public Text timeLeftText;
     public Text scoreText;
 
