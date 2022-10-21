@@ -7,18 +7,30 @@ public class LineEraseLogic : MonoBehaviour
     public GameObject[] arrayOfBlocks;
     public AudioSource eraseSound;
     public ParticleSystem explosion;
+    public float lineLength;
 
+    private float blockSize;
+    private float lowestLevel;
     private ParticleSystem thisExplosion;
     private Color blockColor;
     private float checkY;
-    private float lineLuft = 0.3f;
+    private float lineLuft;
     private int lineCount;
     
+    // Start is called before the first frame update
+    void Start()
+    {
+        blockSize = 10 / lineLength;
+        lineLuft = 0.3f;
+        lowestLevel = blockSize / 2f - 20f / blockSize;
+        // Debug.Log($"{blockSize} {lineLuft} {lowestLevel}");
+    }
+
     // Update is called once per frame
     void Update()
     {
         arrayOfBlocks = GameObject.FindGameObjectsWithTag("Block");
-        for (float y = -19.5f; y < 0f; y++)
+        for (float y = lowestLevel; y < 0f; y++)
         {
             lineCount = 0;
             foreach (GameObject countBlocks in arrayOfBlocks)
@@ -29,10 +41,11 @@ public class LineEraseLogic : MonoBehaviour
                     lineCount++;
                 }
             }
-            if (lineCount > 9)
+            if (lineCount >= lineLength)
             {
                 eraseLine(y);
             }
+            // Debug.Log($"{y} {lineCount}");
         }
     }
 

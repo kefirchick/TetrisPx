@@ -6,8 +6,9 @@ public class SpawnFigures : MonoBehaviour
 {    
     public GameObject[] figures;
     public float spawnTime;
-    public float scaleValue;
-        
+    public float lineLength;
+    
+    private float blockSize;
     private GameObject figure;
     private GameObject block;
     private float randomColour;
@@ -21,7 +22,8 @@ public class SpawnFigures : MonoBehaviour
         // Spawn first figure
         Invoke("Spawn", 0);
         isSpawn = true;
-        scaleVector = new Vector3(1f * scaleValue, 1f * scaleValue, 0);
+        blockSize = 10 / lineLength;
+        scaleVector = new Vector3(blockSize, blockSize, 0);
     }
 
     // Update is called once per frame
