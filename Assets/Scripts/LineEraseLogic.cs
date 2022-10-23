@@ -23,7 +23,7 @@ public class LineEraseLogic : MonoBehaviour
         blockSize = 10 / lineLength;
         lineLuft = 0.2f;
         lowestLevel = 0.5f - 20f / blockSize;
-        Debug.Log($"{blockSize} {lineLuft} {lowestLevel}");
+        // Debug.Log($"{blockSize} {lineLuft} {lowestLevel}");
     }
     // Update is called once per frame
     void Update()
@@ -44,7 +44,7 @@ public class LineEraseLogic : MonoBehaviour
             {
                 eraseLine(y);
             }
-            Debug.Log($"{y} {lineCount}");
+            // Debug.Log($"{y} {lineCount}");
         }
     }
 
