@@ -15,7 +15,8 @@ public class DragAndDrop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        col = GetComponent<Collider2D>();
+        col = GetComponent<BoxCollider2D>();
+        if (col.enabled == false) col = GetComponent<CircleCollider2D>();
         targetJoint = GetComponent<TargetJoint2D>();
         canMove = false;
     }
