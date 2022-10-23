@@ -21,16 +21,15 @@ public class LineEraseLogic : MonoBehaviour
     void Start()
     {
         blockSize = 10 / lineLength;
-        lineLuft = 0.3f;
+        lineLuft = 0.2f;
         lowestLevel = 0.5f - 20f / blockSize;
         Debug.Log($"{blockSize} {lineLuft} {lowestLevel}");
     }
-
     // Update is called once per frame
     void Update()
     {
         arrayOfBlocks = GameObject.FindGameObjectsWithTag("Block");
-        for (float y = lowestLevel; y < 0f; y++)
+        for (float y = lowestLevel; y < 0f; y += 0.1f)
         {
             lineCount = 0;
             foreach (GameObject countBlocks in arrayOfBlocks)

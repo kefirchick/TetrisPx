@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3361490432124727385}
   - component: {fileID: 703122169327079778}
   m_Layer: 0
-  m_Name: Block
+  m_Name: Circle
   m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 97452d6355c20814695f66f71a890e2d,
+  m_Sprite: {fileID: -2413806693520163455, guid: af2401509e863fd49959bb2787e7b3bc,
     type: 3}
   m_Color: {r: 0.3385444, g: 0.5849056, b: 0.32831967, a: 1}
   m_FlipX: 0
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4075297488785372994}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -138,7 +138,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &7231312461454116434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4075297488785372994}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

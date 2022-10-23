@@ -47,7 +47,7 @@ public class SpawnFigures : MonoBehaviour
     //Spawn random figure in time interval
     void Spawn()
     {
-        figure = Instantiate(figures[Random.Range(0, 7)], new Vector3(5, 20, 0), Quaternion.identity);
+        figure = Instantiate(figures[Random.Range(0, figures.Length)], new Vector3(5, 20, 0), Quaternion.identity);
         figure.transform.localScale = scaleVector;
 
         //Painting instanciated figure

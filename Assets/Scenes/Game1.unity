@@ -916,8 +916,15 @@ MonoBehaviour:
   - {fileID: 3802974963638473835, guid: c2dcbda9199348b4f8d28a59f4473d6c, type: 3}
   - {fileID: 6723413560180258554, guid: 0ac7737b49c538f488490ff15acd5652, type: 3}
   - {fileID: 5855043460014851041, guid: 7abbf4559147a2c49aaa7df0595444f8, type: 3}
+  - {fileID: 5157125362664171911, guid: 8d32b5b650e85584b8f6bd84a23bf465, type: 3}
+  - {fileID: 402110959055513045, guid: ca862c26e65621c488a0cfec8ea9c78c, type: 3}
+  - {fileID: 98250076335722181, guid: e8c9a3ac8d077f940a4c70a4d1afb6a7, type: 3}
+  - {fileID: 3786980113498235641, guid: 4ce96a9d76d37c749a1f0ff2cb02e7d3, type: 3}
+  - {fileID: 3802974963638473835, guid: cfe7009ed41a86b408eaa544c237e5b0, type: 3}
+  - {fileID: 6723413560180258554, guid: 84f36fe9cb157db47878a16de7228ae2, type: 3}
+  - {fileID: 5855043460014851041, guid: 5fcc8c19a69b29b49ad8f45c430fc705, type: 3}
   spawnTime: 5
-  lineLength: 5
+  lineLength: 7
 --- !u!4 &1046994006
 Transform:
   m_ObjectHideFlags: 0
@@ -949,7 +956,7 @@ MonoBehaviour:
   eraseSound: {fileID: 1046994009}
   explosion: {fileID: 7316068792543953750, guid: 5efb55c356d6f804aa3d77c19eaa9338,
     type: 3}
-  lineLength: 5
+  lineLength: 7
 --- !u!114 &1046994008
 MonoBehaviour:
   m_ObjectHideFlags: 0
