@@ -22,7 +22,7 @@ public class LineEraseLogic : MonoBehaviour
     {
         blockSize = 10 / lineLength;
         lineLuft = 0.2f;
-        lowestLevel = 0.5f - 20f / blockSize;
+        lowestLevel = 0.5f - 26f / blockSize;
         // Debug.Log($"{blockSize} {lineLuft} {lowestLevel}");
     }
     // Update is called once per frame
