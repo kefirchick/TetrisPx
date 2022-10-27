@@ -17,9 +17,9 @@ public class gyroAndAcc : MonoBehaviour
 
     void Update()
     {
-        zAngle = (Input.gyro.attitude.eulerAngles.z - 90) / 180;
-        xGravity = -9.8f * Mathf.Sin(zAngle);
-        yGravity = -9.8f * Mathf.Cos(zAngle);
+        zAngle = (Input.gyro.attitude.eulerAngles.z - 90) * Mathf.PI / 180;
+        xGravity = -10f * Mathf.Sin(zAngle);
+        yGravity = -10f * Mathf.Cos(zAngle);
         Physics2D.gravity = new Vector2(xGravity, yGravity);
         Debug.Log($"{Input.gyro.attitude.eulerAngles.z}    {zAngle}    {xGravity}    {yGravity}");
         // transform.eulerAngles = new Vector3(0, 0, -zAngle - 90);
