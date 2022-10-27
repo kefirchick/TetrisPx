@@ -22,6 +22,5 @@ public class RedLineTrigger : MonoBehaviour
     {
         time = (currentCollisions.Count > 0) ? time - Time.deltaTime : 3f;
         if (time < 0f) SceneManager.LoadScene("GameOver");
-        Debug.Log($"{currentCollisions.Count} {time}");
     }
 }
