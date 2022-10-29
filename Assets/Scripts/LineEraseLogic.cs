@@ -49,7 +49,6 @@ public class LineEraseLogic : MonoBehaviour
     }
 
     void eraseLine(float y) {
-        // Debug.Log($"{3453464565}");
         this.GetComponent<AudioSource>().pitch = Random.Range(0.7f, 1.4f);
         eraseSound.Play();
         foreach (GameObject destroyBlocks in arrayOfBlocks)
@@ -57,13 +56,18 @@ public class LineEraseLogic : MonoBehaviour
             checkY = destroyBlocks.transform.localPosition.y;
             if ((checkY > y - lineLuft) && (checkY < y + lineLuft))
             {
-                blockColor = destroyBlocks.GetComponent<SpriteRenderer>().color;
-                thisExplosion = Instantiate(explosion, destroyBlocks.transform.position, Quaternion.identity);
-                var main = thisExplosion.main;
-                main.startColor = blockColor;
-                Destroy(destroyBlocks);
-                UILogic.instance.UpScore();
+                eraseBlock(destroyBlocks);
             }
         }
+    }
+
+    void eraseBlock(GameObject destroyBlocks)
+    {
+        blockColor = destroyBlocks.GetComponent<SpriteRenderer>().color;
+        thisExplosion = Instantiate(explosion, destroyBlocks.transform.position, Quaternion.identity);
+        var main = thisExplosion.main;
+        main.startColor = blockColor;
+        Destroy(destroyBlocks);
+        UILogic.instance.UpScore();
     }
 }
