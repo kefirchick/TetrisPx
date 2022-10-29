@@ -21,7 +21,7 @@ public class gyroAndAcc : MonoBehaviour
         xGravity = -10f * Mathf.Sin(zAngle);
         yGravity = -10f * Mathf.Cos(zAngle);
         Physics2D.gravity = new Vector2(xGravity, yGravity);
-        Debug.Log($"{Input.gyro.attitude.eulerAngles.z}    {zAngle}    {xGravity}    {yGravity}");
-        // transform.eulerAngles = new Vector3(0, 0, -zAngle - 90);
+        // Debug.Log($"{Input.gyro.attitude.eulerAngles.z}    {zAngle}    {xGravity}    {yGravity}");
+        // Debug.Log($"{Input.acceleration.x}    {Input.acceleration.y}");
     }
 }

@@ -5,16 +5,19 @@ using UnityEngine;
 public class SpawnFigures : MonoBehaviour
 {    
     public GameObject[] figures;
+    public GameObject[] figureImages;
     public float spawnTime;
     public float lineLength;
     
-    private float blockSize;
-    private GameObject figure;
-    private GameObject block;
-    private float randomColour;
-    private bool isSpawn = false;
-    private bool isSpeedIncrease = false;
-    private Vector3 scaleVector;
+    float blockSize;
+    GameObject figure;
+    GameObject nextFigure = null;
+    float randomColour;
+    int nextFigureNumb = -1;
+    bool isSpawn = false;
+    bool isSpeedIncrease = false;
+    Vector3 scaleVector;
+    public Quaternion nextFigureRot;
 
     // Start is called before the first frame update
     void Start()
@@ -47,17 +50,23 @@ public class SpawnFigures : MonoBehaviour
     //Spawn random figure in time interval
     void Spawn()
     {
-        figure = Instantiate(figures[Random.Range(0, figures.Length)], new Vector3(5, 26, 0), Quaternion.identity);
-        figure.transform.localScale = scaleVector;
+        GameObject block;
 
-        //Painting instanciated figure
-        randomColour = Random.Range(0f, 1f);
-        for (int i = 0; i < figure.transform.childCount; i++)
-        {
-            block = figure.transform.GetChild(i).gameObject;
-            block.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(randomColour, 0.5f, 0.75f);
+        if (nextFigureNumb >= 0) {
+            // Instantiating figure
+            figure = Instantiate(figures[nextFigureNumb], new Vector3(5, 26, 0), nextFigureRot);
+            figure.transform.localScale = scaleVector;
+
+            //Painting instanciated figure
+            randomColour = Random.Range(0f, 1f);
+            for (int i = 0; i < figure.transform.childCount; i++)
+            {
+                block = figure.transform.GetChild(i).gameObject;
+                block.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(randomColour, 0.5f, 0.75f);
+            }
         }
         isSpawn = false; //To start a new spawn cycle
+        createNextFigure();
     }
 
     void speedIncrease()
@@ -65,5 +74,20 @@ public class SpawnFigures : MonoBehaviour
         //Increasing spawn speed
         if (spawnTime > 3) spawnTime--;
         isSpeedIncrease = false;
+    }
+
+    void createNextFigure()
+    {
+        // GameObject block;
+        if (nextFigure) Destroy(nextFigure);
+        nextFigureNumb = Random.Range(0, figures.Length);
+        nextFigureRot = Quaternion.identity;
+        nextFigure = Instantiate(figureImages[nextFigureNumb], new Vector3(7.7f, 17.7f, 0f), nextFigureRot);
+    }
+
+    public void Rotate()
+    {
+        nextFigureRot.eulerAngles -= new Vector3(0f, 0f, 90f);
+        nextFigure.transform.eulerAngles = nextFigureRot.eulerAngles;
     }
 }
