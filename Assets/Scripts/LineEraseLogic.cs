@@ -17,24 +17,20 @@ public class LineEraseLogic : MonoBehaviour
     private float lineLuft;
     private int lineCount;
     
-    // Start is called before the first frame update
     void Start()
     {
-        blockSize = 10 / lineLength;
         lineLuft = 0.2f;
-        lowestLevel = 0.5f - 26f / blockSize;
-        // Debug.Log($"{blockSize} {lineLuft} {lowestLevel}");
+        lowestLevel = 0f;
     }
-    // Update is called once per frame
     void Update()
     {
         arrayOfBlocks = GameObject.FindGameObjectsWithTag("Block");
-        for (float y = lowestLevel; y < 0f; y += 0.1f)
+        for (float y = lowestLevel; y < 20f; y += 0.1f)
         {
             lineCount = 0;
             foreach (GameObject countBlocks in arrayOfBlocks)
             {
-                checkY = countBlocks.transform.localPosition.y;
+                checkY = countBlocks.transform.position.y;
                 if ((checkY > y - lineLuft) && (checkY < y + lineLuft))
                 {
                     lineCount++;
@@ -44,7 +40,6 @@ public class LineEraseLogic : MonoBehaviour
             {
                 eraseLine(y);
             }
-            if (lineCount > 0) Debug.Log($"{lineCount}");
         }
     }
 
@@ -53,7 +48,7 @@ public class LineEraseLogic : MonoBehaviour
         eraseSound.Play();
         foreach (GameObject destroyBlocks in arrayOfBlocks)
         {
-            checkY = destroyBlocks.transform.localPosition.y;
+            checkY = destroyBlocks.transform.position.y;
             if ((checkY > y - lineLuft) && (checkY < y + lineLuft))
             {
                 eraseBlock(destroyBlocks);

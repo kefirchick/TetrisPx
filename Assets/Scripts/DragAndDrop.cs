@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
 {
-    public Quaternion orientation;
     private Collider2D col;
  
     private TargetJoint2D targetJoint;

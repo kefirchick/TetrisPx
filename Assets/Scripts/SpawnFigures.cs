@@ -63,7 +63,6 @@ public class SpawnFigures : MonoBehaviour
             {
                 block = figure.transform.GetChild(i).gameObject;
                 block.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(randomColour, 0.5f, 0.75f);
-                block.GetComponent<DragAndDrop>().orientation = nextFigureRot;
             }
         }
         isSpawn = false; //To start a new spawn cycle
