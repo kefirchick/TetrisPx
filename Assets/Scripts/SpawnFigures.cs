@@ -67,12 +67,13 @@ public class SpawnFigures : MonoBehaviour
         }
         isSpawn = false; //To start a new spawn cycle
         createNextFigure();
+        UILogic.instance.SetTimer(spawnTime);
     }
 
     void speedIncrease()
     {
         //Increasing spawn speed
-        if (spawnTime > 3) spawnTime--;
+        if (spawnTime > 0) spawnTime--;
         isSpeedIncrease = false;
     }
 

@@ -44,11 +44,12 @@ public class LineEraseLogic : MonoBehaviour
             {
                 eraseLine(y);
             }
-            // Debug.Log($"{y} {lineCount}");
+            if (lineCount > 0) Debug.Log($"{lineCount}");
         }
     }
 
     void eraseLine(float y) {
+        // Debug.Log($"{3453464565}");
         this.GetComponent<AudioSource>().pitch = Random.Range(0.7f, 1.4f);
         eraseSound.Play();
         foreach (GameObject destroyBlocks in arrayOfBlocks)

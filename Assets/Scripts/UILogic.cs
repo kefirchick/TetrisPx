@@ -24,11 +24,11 @@ public class UILogic : MonoBehaviour
         // Showing time and score on UI
         timeLeft -= Time.deltaTime;
         timeLeftText.text = Mathf.Round(timeLeft).ToString();
-        if (timeLeft < 0)
-        {
-            PlayerPrefs.SetInt("YourScore", score);
-            SceneManager.LoadScene("GameOver");
-        }
+        // if (timeLeft < 0)
+        // {
+        //     PlayerPrefs.SetInt("YourScore", score);
+        //     SceneManager.LoadScene("GameOver");
+        // }
     }
 
     public void UpScore()
@@ -44,5 +44,9 @@ public class UILogic : MonoBehaviour
         // See BoxTrapDestroy
         score -= 10;
         scoreText.text = score.ToString();
+    }
+
+    public void SetTimer(float spawnTime) {
+        timeLeft = spawnTime;
     }
 }

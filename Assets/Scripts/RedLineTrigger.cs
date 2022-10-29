@@ -21,6 +21,10 @@ public class RedLineTrigger : MonoBehaviour
     void Update()
     {
         time = (currentCollisions.Count > 0) ? time - Time.deltaTime : 3f;
-        if (time < 0f) SceneManager.LoadScene("GameOver");
+        if (time < 0f)
+        {
+            PlayerPrefs.SetInt("YourScore", UILogic.instance.score);
+            SceneManager.LoadScene("GameOver");
+        }
     }
 }
