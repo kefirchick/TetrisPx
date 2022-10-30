@@ -10,6 +10,7 @@ public class SpawnFigures : MonoBehaviour
     public float lineLength;
     
     float blockSize;
+    float screenWidth;
     GameObject figure;
     GameObject nextFigure = null;
     float randomColour;
@@ -22,11 +23,20 @@ public class SpawnFigures : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Spawn first figure
         Invoke("Spawn", 0);
         isSpawn = true;
-        blockSize = 10 / lineLength;
+        screenWidth = 20f * ((float)Screen.width / (float)Screen.height);
+
+        // Debug.Log($"{screenWidth}    {Screen.width}    {Screen.height}");
+
+        GameObject.Find("BorderLeft").transform.localPosition = new Vector3(-1 - screenWidth / 2, -10, 0);
+        GameObject.Find("BorderRight").transform.localPosition = new Vector3(1 + screenWidth / 2, -10, 0);
+        GameObject.Find("TrapLeft").transform.position = new Vector3(4 - screenWidth / 2, 28, 0);
+        GameObject.Find("TrapRight").transform.position = new Vector3(6 + screenWidth / 2, 28, 0);
+
+        blockSize = screenWidth / lineLength;
         scaleVector = new Vector3(blockSize, blockSize, 0);
+
     }
 
     // Update is called once per frame

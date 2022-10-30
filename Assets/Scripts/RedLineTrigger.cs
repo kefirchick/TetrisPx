@@ -11,6 +11,7 @@ public class RedLineTrigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         currentCollisions.Add(col.gameObject);
+        // Debug.Log($"{col.gameObject.transform.position} {col.gameObject.transform.localPosition}");
     }
 
     void OnTriggerExit2D(Collider2D col) 
