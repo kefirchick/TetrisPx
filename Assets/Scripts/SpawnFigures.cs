@@ -34,7 +34,7 @@ public class SpawnFigures : MonoBehaviour
         GameObject.Find("TrapLeft").transform.position = new Vector3(4 - screenWidth / 2, 28, 0);
         GameObject.Find("TrapRight").transform.position = new Vector3(6 + screenWidth / 2, 28, 0);
 
-        blockSize = screenWidth / lineLength;
+        blockSize = screenWidth / (lineLength + 0.2f);
         scaleVector = new Vector3(blockSize, blockSize, 0);
 
     }
@@ -93,7 +93,7 @@ public class SpawnFigures : MonoBehaviour
         if (nextFigure) Destroy(nextFigure);
         nextFigureNumb = Random.Range(0, figures.Length);
         nextFigureRot = Quaternion.identity;
-        nextFigure = Instantiate(figureImages[nextFigureNumb], new Vector3(7.7f, 17.7f, 0f), nextFigureRot);
+        nextFigure = Instantiate(figureImages[nextFigureNumb], new Vector3(7.7f, 15.7f, 0f), nextFigureRot);
     }
 
     public void Rotate()
