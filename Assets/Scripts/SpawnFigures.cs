@@ -72,7 +72,7 @@ public class SpawnFigures : MonoBehaviour
             for (int i = 0; i < figure.transform.childCount; i++)
             {
                 block = figure.transform.GetChild(i).gameObject;
-                block.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(randomColour, 1f, 1f);
+                block.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(randomColour, 0.7f, 1f);
             }
         }
         isSpawn = false; //To start a new spawn cycle
