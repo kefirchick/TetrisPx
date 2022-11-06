@@ -38,10 +38,10 @@ public class RedLineTrigger : MonoBehaviour
             deathClock.text = "Game over in: " + Mathf.Ceil(time).ToString();
         } else {
             time = 3f;
-            // анимация останавливается отлько при пролете фигуры. Нужно перекинуть на другой объект
-            redAnimation.Stop();
-            deathClockAnimation.Stop();
+            redAnimation.Rewind();
+            deathClockAnimation.Rewind();
         }
+        Debug.Log(deathClockAnimation.isPlaying + "   " + currentCollisions.Count);
 
         if (time < 0f) {
             PlayerPrefs.SetInt("YourScore", UILogic.instance.score);
