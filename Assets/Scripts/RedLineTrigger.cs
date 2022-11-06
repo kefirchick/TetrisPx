@@ -1,17 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class RedLineTrigger : MonoBehaviour
 {
+    public Text deathClock;
+    private Animation deathClockAnimation;
+    private Animation redAnimation;
     private List<GameObject> currentCollisions = new List<GameObject>();
     private float time = 3f;
+
+    void Start() {
+        deathClockAnimation = deathClock.GetComponent<Animation>();
+        redAnimation = GetComponent<Animation>();
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         currentCollisions.Add(col.gameObject);
-        // Debug.Log($"{col.gameObject.transform.position} {col.gameObject.transform.localPosition}");
     }
 
     void OnTriggerExit2D(Collider2D col) 
@@ -21,9 +29,18 @@ public class RedLineTrigger : MonoBehaviour
 
     void Update()
     {
-        time = (currentCollisions.Count > 0) ? time - Time.deltaTime : 3f;
-        if (time < 0f)
-        {
+        if (currentCollisions.Count > 0) {
+            time = time - Time.deltaTime;
+            deathClockAnimation.Play();
+            redAnimation.Play();
+            deathClock.text = "Game over in: " + Mathf.Ceil(time).ToString();
+        } else {
+            time = 3f;
+            redAnimation.Stop();
+            deathClockAnimation.Stop();
+        }
+
+        if (time < 0f) {
             PlayerPrefs.SetInt("YourScore", UILogic.instance.score);
             SceneManager.LoadScene("GameOver");
         }

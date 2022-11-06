@@ -23,7 +23,7 @@ public class UILogic : MonoBehaviour
     {
         // Showing time and score on UI
         timeLeft -= Time.deltaTime;
-        timeLeftText.text = Mathf.Round(timeLeft).ToString();
+        timeLeftText.text = Mathf.Ceil(timeLeft).ToString();
         // if (timeLeft < 0)
         // {
         //     PlayerPrefs.SetInt("YourScore", score);
