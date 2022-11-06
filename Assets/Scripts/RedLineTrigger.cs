@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class RedLineTrigger : MonoBehaviour
 {
     public Text deathClock;
+    private Color deathClockColor;
     private Animation deathClockAnimation;
     private Animation redAnimation;
     private List<GameObject> currentCollisions = new List<GameObject>();
@@ -15,6 +16,7 @@ public class RedLineTrigger : MonoBehaviour
     void Start() {
         deathClockAnimation = deathClock.GetComponent<Animation>();
         redAnimation = GetComponent<Animation>();
+        deathClockColor = deathClock.color;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -36,6 +38,7 @@ public class RedLineTrigger : MonoBehaviour
             deathClock.text = "Game over in: " + Mathf.Ceil(time).ToString();
         } else {
             time = 3f;
+            // анимация останавливается отлько при пролете фигуры. Нужно перекинуть на другой объект
             redAnimation.Stop();
             deathClockAnimation.Stop();
         }
