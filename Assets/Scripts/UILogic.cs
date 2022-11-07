@@ -10,6 +10,9 @@ public class UILogic : MonoBehaviour
 
     public Text timeLeftText;
     public Text scoreText;
+    public Text volumeText;
+    public GameObject volumeSlider;
+    private Slider slider;
     public GameObject canvasUI;
     public GameObject canvasPause;
 
@@ -19,6 +22,12 @@ public class UILogic : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        slider = volumeSlider.GetComponent<Slider>();
+        slider.value = AudioListener.volume * 100f;
     }
 
     private void Update()
@@ -54,5 +63,11 @@ public class UILogic : MonoBehaviour
         canvasUI.SetActive(true);
         canvasPause.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void OnSliderChanged(float value) {
+        AudioListener.volume = slider.value;
+        float vol = Mathf.Round(slider.value * 100f);
+        volumeText.text = "VOLUME: " + vol.ToString() + "%";
     }
 }
