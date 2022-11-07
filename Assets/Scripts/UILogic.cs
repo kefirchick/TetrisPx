@@ -23,7 +23,7 @@ public class UILogic : MonoBehaviour
     {
         // Showing time and score on UI
         timeLeft -= Time.deltaTime;
-        timeLeftText.text = Mathf.Ceil(timeLeft).ToString();
+        timeLeftText.text = "NEXT IN: " + Mathf.Ceil(timeLeft).ToString();
         // if (timeLeft < 0)
         // {
         //     PlayerPrefs.SetInt("YourScore", score);
@@ -34,16 +34,16 @@ public class UILogic : MonoBehaviour
     public void UpScore()
     {
         // See LineEraseLogic
-        score += 10;
+        score += 5;
         timeLeft++;
-        scoreText.text = score.ToString();
+        scoreText.text = "SCORE: " + score.ToString();
     }
 
     public void DownScore()
     {
         // See BoxTrapDestroy
-        score -= 10;
-        scoreText.text = score.ToString();
+        score -= 2;
+        scoreText.text = "SCORE: " + score.ToString();
     }
 
     public void SetTimer(float spawnTime) {
