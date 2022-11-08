@@ -15,6 +15,9 @@ public class SettingsLogic : MonoBehaviour
     public GameObject shapeObject;
     private Slider shapeSlider;
     public Text shapeText;
+    public GameObject gyroObject;
+    private Toggle gyroToggle;
+    public Text gyroText;
 
     void Start() {
         volumeSlider = volumeObject.GetComponent<Slider>();
@@ -23,6 +26,8 @@ public class SettingsLogic : MonoBehaviour
         lengthSlider.value = PlayerPrefs.GetFloat("lengthPref", 7f);
         shapeSlider = shapeObject.GetComponent<Slider>();
         shapeSlider.value = PlayerPrefs.GetFloat("shapePref", 0f);
+        gyroToggle = gyroObject.GetComponent<Toggle>();
+        gyroToggle.isOn = (PlayerPrefs.GetInt("gyroPref", 1) == 1) ? true : false;
     }
 
     public void OnVolumeSliderChanged(float value) {
@@ -50,6 +55,16 @@ public class SettingsLogic : MonoBehaviour
                 shapeText.text = "Blocks shape: Round only";
                 break;
         }
+    }
+
+    public void onToggle(bool value) {
+        if (gyroToggle.isOn) {
+            gyroText.text = "Gyroscop on";
+            PlayerPrefs.SetInt("gyroPref", 1);
+        } else {
+            gyroText.text = "Gyroscop off";
+            PlayerPrefs.SetInt("gyroPref", 0);
+        };
     }
 
     public void backToMenu()

@@ -20,7 +20,7 @@ public class gyroAndAcc : MonoBehaviour
 
     void Update()
     {
-        if (SystemInfo.supportsGyroscope) 
+        if (SystemInfo.supportsGyroscope && PlayerPrefs.GetInt("gyroPref", 0) == 1) 
         {
             zAngle = (Input.gyro.attitude.eulerAngles.z - 90) * Mathf.PI / 180;
             xGravity = -10f * Mathf.Sin(zAngle);
