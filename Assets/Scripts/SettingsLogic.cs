@@ -34,6 +34,22 @@ public class SettingsLogic : MonoBehaviour
 
     public void OnLengthSliderChanged(int value) {
         PlayerPrefs.SetFloat("lengthPref", lengthSlider.value);
+        lengthText.text = "ROW LENGTH: " + lengthSlider.value.ToString();
+    }
+
+    public void OnShapeSliderChanged(int value) {
+        PlayerPrefs.SetFloat("shapePref", shapeSlider.value);
+        switch (shapeSlider.value) {
+            case 0:
+                shapeText.text = "Blocks shape: Square only";
+                break;
+            case 1:
+                shapeText.text = "Blocks shape: Square and round";
+                break;
+            case 2:
+                shapeText.text = "Blocks shape: Round only";
+                break;
+        }
     }
 
     public void backToMenu()

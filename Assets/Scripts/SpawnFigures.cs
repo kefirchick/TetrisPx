@@ -84,7 +84,17 @@ public class SpawnFigures : MonoBehaviour
     void createNextFigure()
     {
         if (nextFigure) Destroy(nextFigure);
-        nextFigureNumb = Random.Range(0, figures.Length);
+        switch (PlayerPrefs.GetFloat("shapePref", 0f)) {
+            case 0:
+                nextFigureNumb = Random.Range(0, figures.Length / 2);
+                break;
+            case 1:
+                nextFigureNumb = Random.Range(0, figures.Length);
+                break;
+            case 2:
+                nextFigureNumb = Random.Range(figures.Length / 2, figures.Length);
+                break;
+        }
         nextFigureRot = Quaternion.identity;
         nextFigure = Instantiate(figureImages[nextFigureNumb], new Vector3(7.7f, 15.7f, 0f), nextFigureRot);
     }

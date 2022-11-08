@@ -1328,8 +1328,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -520, y: -19}
-  m_SizeDelta: {x: 517.1, y: 81.69}
+  m_AnchoredPosition: {x: -524, y: -23.167}
+  m_SizeDelta: {x: 593.2, y: 81.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1427547484
 MonoBehaviour:
@@ -1364,7 +1364,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Row length: 7'
+  m_Text: 'Row length: 10'
 --- !u!222 &1427547485
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1535,10 +1535,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuLogic, Assembly-CSharp
-        m_MethodName: OnSliderChanged
-        m_Mode: 4
+      - m_Target: {fileID: 774190709}
+        m_TargetAssemblyTypeName: SettingsLogic, Assembly-CSharp
+        m_MethodName: OnShapeSliderChanged
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
