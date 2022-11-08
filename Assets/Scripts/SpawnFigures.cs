@@ -20,26 +20,21 @@ public class SpawnFigures : MonoBehaviour
     Vector3 scaleVector;
     public Quaternion nextFigureRot;
 
-    // Start is called before the first frame update
     void Start()
     {
         Invoke("Spawn", 0);
         isSpawn = true;
         screenWidth = 20f * ((float)Screen.width / (float)Screen.height);
-
-        // Debug.Log($"{screenWidth}    {Screen.width}    {Screen.height}");
+        lineLength = PlayerPrefs.GetFloat("lengthPref", 7);
+        blockSize = screenWidth / (lineLength + 0.2f);
+        scaleVector = new Vector3(blockSize, blockSize, 0);
 
         GameObject.Find("BorderLeft").transform.localPosition = new Vector3(-1 - screenWidth / 2, -10, 0);
         GameObject.Find("BorderRight").transform.localPosition = new Vector3(1 + screenWidth / 2, -10, 0);
         GameObject.Find("TrapLeft").transform.position = new Vector3(4 - screenWidth / 2, 28, 0);
         GameObject.Find("TrapRight").transform.position = new Vector3(6 + screenWidth / 2, 28, 0);
-
-        blockSize = screenWidth / (lineLength + 0.2f);
-        scaleVector = new Vector3(blockSize, blockSize, 0);
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Spawn random figure in time interval
@@ -82,14 +77,12 @@ public class SpawnFigures : MonoBehaviour
 
     void speedIncrease()
     {
-        //Increasing spawn speed
         if (spawnTime > 0) spawnTime--;
         isSpeedIncrease = false;
     }
 
     void createNextFigure()
     {
-        // GameObject block;
         if (nextFigure) Destroy(nextFigure);
         nextFigureNumb = Random.Range(0, figures.Length);
         nextFigureRot = Quaternion.identity;

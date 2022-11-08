@@ -21,6 +21,7 @@ public class LineEraseLogic : MonoBehaviour
     {
         lineLuft = 0.2f;
         lowestLevel = 0f;
+        lineLength = PlayerPrefs.GetFloat("lengthPref", 7);
     }
     void Update()
     {

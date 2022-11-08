@@ -34,7 +34,6 @@ public class UILogic : MonoBehaviour
     {
         timeLeft -= Time.deltaTime;
         timeLeftText.text = "NEXT IN: " + Mathf.Ceil(timeLeft).ToString();
-        Debug.Log(PlayerPrefs.GetFloat("volumePref", 0f));
     }
 
     public void UpScore()

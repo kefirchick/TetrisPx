@@ -6,21 +6,34 @@ using UnityEngine.UI;
 
 public class SettingsLogic : MonoBehaviour
 {
-    public GameObject volumeSlider;
-    private Slider slider;
+    public GameObject volumeObject;
+    private Slider volumeSlider;
     public Text volumeText;
+    public GameObject lengthObject;
+    private Slider lengthSlider;
+    public Text lengthText;
+    public GameObject shapeObject;
+    private Slider shapeSlider;
+    public Text shapeText;
 
     void Start() {
-        slider = volumeSlider.GetComponent<Slider>();
-        slider.value = PlayerPrefs.GetFloat("volumePref", 1f);
+        volumeSlider = volumeObject.GetComponent<Slider>();
+        volumeSlider.value = PlayerPrefs.GetFloat("volumePref", 1f);
+        lengthSlider = lengthObject.GetComponent<Slider>();
+        lengthSlider.value = PlayerPrefs.GetFloat("lengthPref", 7f);
+        shapeSlider = shapeObject.GetComponent<Slider>();
+        shapeSlider.value = PlayerPrefs.GetFloat("shapePref", 0f);
     }
 
-    public void OnSliderChanged(float value) {
-        AudioListener.volume = slider.value;
-        PlayerPrefs.SetFloat("volumePref", slider.value);
-        float vol = Mathf.Round(slider.value * 100f);
+    public void OnVolumeSliderChanged(float value) {
+        AudioListener.volume = volumeSlider.value;
+        PlayerPrefs.SetFloat("volumePref", volumeSlider.value);
+        float vol = Mathf.Round(volumeSlider.value * 100f);
         volumeText.text = "VOLUME: " + vol.ToString() + "%";
-        Debug.Log(PlayerPrefs.GetFloat("volumePref", 0f));
+    }
+
+    public void OnLengthSliderChanged(int value) {
+        PlayerPrefs.SetFloat("lengthPref", lengthSlider.value);
     }
 
     public void backToMenu()

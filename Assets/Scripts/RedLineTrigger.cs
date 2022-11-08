@@ -41,7 +41,6 @@ public class RedLineTrigger : MonoBehaviour
             redAnimation.Rewind();
             deathClockAnimation.Rewind();
         }
-        // Debug.Log(deathClockAnimation.isPlaying + "   " + currentCollisions.Count);
 
         if (time < 0f) {
             PlayerPrefs.SetInt("YourScore", UILogic.instance.score);
