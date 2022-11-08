@@ -27,13 +27,14 @@ public class UILogic : MonoBehaviour
     private void Start()
     {
         slider = volumeSlider.GetComponent<Slider>();
-        slider.value = AudioListener.volume * 100f;
+        slider.value = PlayerPrefs.GetFloat("volumePref", 1f);
     }
 
     private void Update()
     {
         timeLeft -= Time.deltaTime;
         timeLeftText.text = "NEXT IN: " + Mathf.Ceil(timeLeft).ToString();
+        Debug.Log(PlayerPrefs.GetFloat("volumePref", 0f));
     }
 
     public void UpScore()
@@ -67,7 +68,14 @@ public class UILogic : MonoBehaviour
 
     public void OnSliderChanged(float value) {
         AudioListener.volume = slider.value;
+        PlayerPrefs.SetFloat("volumePref", slider.value);
         float vol = Mathf.Round(slider.value * 100f);
         volumeText.text = "VOLUME: " + vol.ToString() + "%";
+    }
+
+    public void menuLoad()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
     }
 }
