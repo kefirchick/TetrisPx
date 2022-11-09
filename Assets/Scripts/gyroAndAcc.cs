@@ -5,7 +5,6 @@ using UnityEngine;
 public class gyroAndAcc : MonoBehaviour
 {
     Gyroscope m_Gyro;
-    float zAngle;
     float xGravity;
     float yGravity;
 
@@ -22,9 +21,8 @@ public class gyroAndAcc : MonoBehaviour
     {
         if (SystemInfo.supportsGyroscope && PlayerPrefs.GetInt("gyroPref", 0) == 1) 
         {
-            zAngle = (Input.gyro.attitude.eulerAngles.z - 90) * Mathf.PI / 180;
-            xGravity = -10f * Mathf.Sin(zAngle);
-            yGravity = -10f * Mathf.Cos(zAngle);
+            xGravity = Input.gyro.gravity.x * 10;
+            yGravity = Input.gyro.gravity.y * 10;
             Physics2D.gravity = new Vector2(xGravity, yGravity);
         }
     }

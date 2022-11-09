@@ -769,7 +769,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 774190709}
         m_TargetAssemblyTypeName: MenuLogic, Assembly-CSharp
-        m_MethodName: toMenu
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

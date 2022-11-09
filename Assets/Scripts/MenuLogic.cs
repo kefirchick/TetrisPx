@@ -20,4 +20,9 @@ public class MenuLogic : MonoBehaviour
     {
         SceneManager.LoadScene("Settings");
     }
+
+    public void toMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
