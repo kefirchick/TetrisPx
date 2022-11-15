@@ -12,7 +12,7 @@ public class SpawnFigures : MonoBehaviour
     float blockSize;
     float screenWidth;
     GameObject figure;
-    GameObject nextFigure = null;
+    public GameObject nextFigure = null;
     float randomColour;
     int nextFigureNumb = -1;
     bool isSpawn = false;

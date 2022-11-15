@@ -57,12 +57,14 @@ public class UILogic : MonoBehaviour
         canvasUI.SetActive(false);
         canvasPause.SetActive(true);
         Time.timeScale = 0f;
+        GetComponent<SpawnFigures>().nextFigure.SetActive(false);
     }
 
     public void Resume() {
         canvasUI.SetActive(true);
         canvasPause.SetActive(false);
         Time.timeScale = 1f;
+        GetComponent<SpawnFigures>().nextFigure.SetActive(true);
     }
 
     public void OnSliderChanged(float value) {

@@ -2103,6 +2103,7 @@ MonoBehaviour:
   - {fileID: 5855043460014851041, guid: 7de44ebd030b7d345ac20ff4422662d8, type: 3}
   spawnTime: 5
   lineLength: 7
+  nextFigure: {fileID: 0}
   nextFigureRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1046994006
 Transform:

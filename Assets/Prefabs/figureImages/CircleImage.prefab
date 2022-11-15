@@ -9,6 +9,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3758415735997587218, guid: d21c674d1115cf14a80f033b1393fdf3,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2abdc0da49bb1ab4790bb91632cbb9c0,
+        type: 3}
+    - target: {fileID: 3758415735997587218, guid: d21c674d1115cf14a80f033b1393fdf3,
+        type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
@@ -31,7 +37,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1bf09fc6a6b8fb24f87fb97670c4214d, type: 2}
+      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4075297488785372994, guid: d21c674d1115cf14a80f033b1393fdf3,
         type: 3}
       propertyPath: m_Name
@@ -51,6 +57,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891254808674532366, guid: d21c674d1115cf14a80f033b1393fdf3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891254808674532366, guid: d21c674d1115cf14a80f033b1393fdf3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891254808674532366, guid: d21c674d1115cf14a80f033b1393fdf3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8891254808674532366, guid: d21c674d1115cf14a80f033b1393fdf3,
         type: 3}
@@ -101,6 +122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891254808674532366, guid: d21c674d1115cf14a80f033b1393fdf3,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 703122169327079778, guid: d21c674d1115cf14a80f033b1393fdf3, type: 3}
