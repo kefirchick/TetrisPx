@@ -26,7 +26,7 @@ public class DragAndDrop : MonoBehaviour
     void Update() {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetMouseButtonDown(0)) {
-            if (col == Physics2D.OverlapPoint(mousePosition)) {
+            if (col && col == Physics2D.OverlapPoint(mousePosition)) {
                 canMove = true;
                 targetJoint.enabled = true;
             } else {
@@ -48,14 +48,12 @@ public class DragAndDrop : MonoBehaviour
         if (canMove && !isCursor) {
             cursorInstance = Instantiate(cursorPrefab, mousePosition, Quaternion.identity);
             isCursor = true;
-        }
-        if (canMove && isCursor) {
+        } else if (canMove && isCursor) {
             cursorInstance.transform.position = mousePosition;
             float xShift = mousePosition.x - transform.position.x;
             float yShift = mousePosition.y - transform.position.y;
             cursorInstance.transform.Rotate(0f, 0f, 2f + xShift * xShift + yShift * yShift, Space.Self);
-        }
-        if (!canMove && isCursor) {
+        } else {
             Destroy(cursorInstance);
             isCursor = false;
         }
