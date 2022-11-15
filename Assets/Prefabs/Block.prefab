@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f49be14a439d9d448c651e81d4cd8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorPrefab: {fileID: 3352701937805774105, guid: 69ab55d6859819e459a07a87634ade8c,
+    type: 3}
 --- !u!257 &105032958099403499
 TargetJoint2D:
   m_ObjectHideFlags: 0

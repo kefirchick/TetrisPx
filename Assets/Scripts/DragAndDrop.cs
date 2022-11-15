@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
 {
+    public GameObject cursorPrefab;
+    private GameObject cursorInstance;
     private Collider2D col;
  
     private TargetJoint2D targetJoint;
@@ -11,44 +13,49 @@ public class DragAndDrop : MonoBehaviour
     private Vector2 mousePosition;
     
     private bool canMove;
+    private bool isCursor;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         col = GetComponent<BoxCollider2D>();
         if (col.enabled == false) col = GetComponent<CircleCollider2D>();
         targetJoint = GetComponent<TargetJoint2D>();
         canMove = false;
+        isCursor = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Get mouse position
-        //Allow moving then click on block
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (col == Physics2D.OverlapPoint(mousePosition))
-            {
+    void Update() {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (Input.GetMouseButtonDown(0)) {
+            if (col == Physics2D.OverlapPoint(mousePosition)) {
                 canMove = true;
                 targetJoint.enabled = true;
-            }
-            else
-            {
+            } else {
                 canMove = false;
                 targetJoint.enabled = false;
             }
         }
-        //Moving target of joint component of this block
-        if (canMove == true)
-        {
+        if (canMove) {
             targetJoint.target = mousePosition;
         }
-        //Drop the block on button up
-        if (Input.GetMouseButtonUp(0))
-        {
+        if (Input.GetMouseButtonUp(0)) {
             canMove = false;
             targetJoint.enabled = false;
+        }
+        cursorHandle(mousePosition);
+    }
+
+    void cursorHandle(Vector2 mousePosition) {
+        if (canMove && !isCursor) {
+            cursorInstance = Instantiate(cursorPrefab, mousePosition, Quaternion.identity);
+            isCursor = true;
+        }
+        if (canMove && isCursor) {
+            cursorInstance.transform.position = mousePosition;
+            cursorInstance.transform.Rotate(0f, 0f, 10f, Space.Self);
+        }
+        if (!canMove && isCursor) {
+            Destroy(cursorInstance);
+            isCursor = false;
         }
     }
 }
