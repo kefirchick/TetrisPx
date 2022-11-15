@@ -77,7 +77,8 @@ public class SpawnFigures : MonoBehaviour
 
     void speedIncrease()
     {
-        if (spawnTime > 0) spawnTime--;
+        // Uncomment this for growing difficulty:
+        // if (spawnTime > 0) spawnTime--;
         isSpeedIncrease = false;
     }
 

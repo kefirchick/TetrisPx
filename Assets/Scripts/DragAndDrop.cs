@@ -51,7 +51,9 @@ public class DragAndDrop : MonoBehaviour
         }
         if (canMove && isCursor) {
             cursorInstance.transform.position = mousePosition;
-            cursorInstance.transform.Rotate(0f, 0f, 10f, Space.Self);
+            float xShift = mousePosition.x - transform.position.x;
+            float yShift = mousePosition.y - transform.position.y;
+            cursorInstance.transform.Rotate(0f, 0f, 2f + xShift * xShift + yShift * yShift, Space.Self);
         }
         if (!canMove && isCursor) {
             Destroy(cursorInstance);
