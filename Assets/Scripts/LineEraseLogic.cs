@@ -45,7 +45,10 @@ public class LineEraseLogic : MonoBehaviour
     }
 
     IEnumerator eraseLine(float y) {
-        eraseSound.Play();
+        if (!eraseSound.isPlaying) {
+            eraseSound.pitch = Random.Range(0.8f, 1.2f);
+            eraseSound.Play();
+        }
         foreach (GameObject destroyBlocks in arrayOfBlocks)
         {
             checkY = destroyBlocks.transform.position.y;
