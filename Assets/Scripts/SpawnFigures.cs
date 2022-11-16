@@ -19,6 +19,7 @@ public class SpawnFigures : MonoBehaviour
     bool isSpeedIncrease = false;
     Vector3 scaleVector;
     public Quaternion nextFigureRot;
+    public AudioSource spawnSound;
 
     void Start()
     {
@@ -59,6 +60,7 @@ public class SpawnFigures : MonoBehaviour
 
         if (nextFigureNumb >= 0) {
             // Instantiating figure
+            spawnSound.Play();
             figure = Instantiate(figures[nextFigureNumb], new Vector3(5, 26, 0), nextFigureRot);
             figure.transform.localScale = scaleVector;
 

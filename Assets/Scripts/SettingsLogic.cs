@@ -18,6 +18,7 @@ public class SettingsLogic : MonoBehaviour
     public GameObject gyroObject;
     private Toggle gyroToggle;
     public Text gyroText;
+    public AudioSource chalkSound;
 
     void Start() {
         volumeSlider = volumeObject.GetComponent<Slider>();
@@ -31,6 +32,7 @@ public class SettingsLogic : MonoBehaviour
     }
 
     public void OnVolumeSliderChanged(float value) {
+        if (!chalkSound.isPlaying) chalkSound.Play();
         AudioListener.volume = volumeSlider.value;
         PlayerPrefs.SetFloat("volumePref", volumeSlider.value);
         float vol = Mathf.Round(volumeSlider.value * 100f);
@@ -38,11 +40,13 @@ public class SettingsLogic : MonoBehaviour
     }
 
     public void OnLengthSliderChanged(int value) {
+        if (!chalkSound.isPlaying) chalkSound.Play();
         PlayerPrefs.SetFloat("lengthPref", lengthSlider.value);
         lengthText.text = "ROW LENGTH: " + lengthSlider.value.ToString();
     }
 
     public void OnShapeSliderChanged(int value) {
+        if (!chalkSound.isPlaying) chalkSound.Play();
         PlayerPrefs.SetFloat("shapePref", shapeSlider.value);
         switch (shapeSlider.value) {
             case 0:
@@ -58,6 +62,7 @@ public class SettingsLogic : MonoBehaviour
     }
 
     public void onToggle(bool value) {
+        chalkSound.Play();
         if (gyroToggle.isOn) {
             gyroText.text = "Gyroscop on";
             PlayerPrefs.SetInt("gyroPref", 1);

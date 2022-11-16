@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MenuLogic : MonoBehaviour
 {
+    public AudioSource chalkSound;
     public void Game1Start ()
     {
         SceneManager.LoadScene("Game1");
@@ -13,6 +14,7 @@ public class MenuLogic : MonoBehaviour
 
     public void QuitGame ()
     {
+        chalkSound.Play();
         Application.Quit();
     }
 

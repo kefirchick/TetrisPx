@@ -14,8 +14,10 @@ public class DragAndDrop : MonoBehaviour
     
     private bool canMove;
     private bool isCursor;
+    public AudioSource dragSound;
 
     void Start() {
+        
         col = GetComponent<BoxCollider2D>();
         if (col.enabled == false) col = GetComponent<CircleCollider2D>();
         targetJoint = GetComponent<TargetJoint2D>();
@@ -52,10 +54,21 @@ public class DragAndDrop : MonoBehaviour
             cursorInstance.transform.position = mousePosition;
             float xShift = mousePosition.x - transform.position.x;
             float yShift = mousePosition.y - transform.position.y;
-            cursorInstance.transform.Rotate(0f, 0f, 2f + xShift * xShift + yShift * yShift, Space.Self);
+            float shift =  xShift * xShift + yShift * yShift;
+            cursorInstance.transform.Rotate(0f, 0f, 2f + shift, Space.Self);
+            dragSoundPlay(shift);
         } else {
             Destroy(cursorInstance);
             isCursor = false;
+        }
+    }
+
+    void dragSoundPlay(float shift) {
+        if (!dragSound.isPlaying) {
+            shift = (shift > 100f) ? 1.5f : 0.5f + shift / 100f;
+            Debug.Log(shift);
+            dragSound.pitch = shift;
+            dragSound.Play();
         }
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class LineEraseLogic : MonoBehaviour
 {
     public GameObject[] arrayOfBlocks;
-    public AudioSource eraseSound;
     public ParticleSystem explosion;
     public float lineLength;
 
@@ -16,6 +15,7 @@ public class LineEraseLogic : MonoBehaviour
     private float checkY;
     private float lineLuft;
     private int lineCount;
+    public AudioSource eraseSound;
     
     void Start()
     {
@@ -39,19 +39,19 @@ public class LineEraseLogic : MonoBehaviour
             }
             if (lineCount >= lineLength)
             {
-                eraseLine(y);
+                StartCoroutine(eraseLine(y));
             }
         }
     }
 
-    void eraseLine(float y) {
-        this.GetComponent<AudioSource>().pitch = Random.Range(0.7f, 1.4f);
+    IEnumerator eraseLine(float y) {
         eraseSound.Play();
         foreach (GameObject destroyBlocks in arrayOfBlocks)
         {
             checkY = destroyBlocks.transform.position.y;
             if ((checkY > y - lineLuft) && (checkY < y + lineLuft))
             {
+                yield return new WaitForSeconds(0.05f);
                 eraseBlock(destroyBlocks);
             }
         }

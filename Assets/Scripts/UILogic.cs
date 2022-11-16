@@ -15,6 +15,7 @@ public class UILogic : MonoBehaviour
     private Slider slider;
     public GameObject canvasUI;
     public GameObject canvasPause;
+    public AudioSource chalkSound;
 
     public float timeLeft = 60f;
     public int score = 0;
@@ -45,7 +46,8 @@ public class UILogic : MonoBehaviour
 
     public void DownScore()
     {
-        score -= 2;
+        // Uncommennt this for downscore:
+        // score -= 2;
         scoreText.text = "SCORE: " + score.ToString();
     }
 
@@ -58,6 +60,7 @@ public class UILogic : MonoBehaviour
         canvasPause.SetActive(true);
         Time.timeScale = 0f;
         GetComponent<SpawnFigures>().nextFigure.SetActive(false);
+        chalkSound.Play();
     }
 
     public void Resume() {
@@ -65,9 +68,11 @@ public class UILogic : MonoBehaviour
         canvasPause.SetActive(false);
         Time.timeScale = 1f;
         GetComponent<SpawnFigures>().nextFigure.SetActive(true);
+        chalkSound.Play();
     }
 
     public void OnSliderChanged(float value) {
+        if (!chalkSound.isPlaying) chalkSound.Play();
         AudioListener.volume = slider.value;
         PlayerPrefs.SetFloat("volumePref", slider.value);
         float vol = Mathf.Round(slider.value * 100f);
