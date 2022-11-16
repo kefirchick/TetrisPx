@@ -84,4 +84,10 @@ public class UILogic : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }
+
+    public void gameOverLoad() {
+        Time.timeScale = 1f;
+        PlayerPrefs.SetInt("YourScore", UILogic.instance.score);
+        SceneManager.LoadScene("GameOver");
+    }
 }

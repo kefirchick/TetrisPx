@@ -66,7 +66,6 @@ public class DragAndDrop : MonoBehaviour
     void dragSoundPlay(float shift) {
         if (!dragSound.isPlaying) {
             shift = (shift > 100f) ? 1.5f : 0.5f + shift / 100f;
-            Debug.Log(shift);
             dragSound.pitch = shift;
             dragSound.Play();
         }
