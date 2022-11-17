@@ -19,18 +19,15 @@ public class RedLineTrigger : MonoBehaviour
         deathClockColor = deathClock.color;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
+    void OnTriggerEnter2D(Collider2D col) {
         currentCollisions.Add(col.gameObject);
     }
 
-    void OnTriggerExit2D(Collider2D col) 
-    {
+    void OnTriggerExit2D(Collider2D col) {
         currentCollisions.Remove(col.gameObject);
     }
 
-    void Update()
-    {
+    void Update() {
         if (currentCollisions.Count > 0) {
             time = time - Time.deltaTime;
             deathClockAnimation.Play();

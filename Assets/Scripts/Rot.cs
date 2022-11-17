@@ -7,8 +7,7 @@ public class Rot : MonoBehaviour
     public GameObject go;
     public AudioSource chalkSound;
 
-    public void Rotate()
-    {
+    public void Rotate() {
         chalkSound.Play();
         go.GetComponent<SpawnFigures>().Rotate();
     }

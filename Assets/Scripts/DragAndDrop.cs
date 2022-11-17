@@ -16,8 +16,7 @@ public class DragAndDrop : MonoBehaviour
     private bool isCursor;
     public AudioSource dragSound;
 
-    void Start() {
-        
+    void Start() {   
         col = GetComponent<BoxCollider2D>();
         if (col.enabled == false) col = GetComponent<CircleCollider2D>();
         targetJoint = GetComponent<TargetJoint2D>();
@@ -28,7 +27,7 @@ public class DragAndDrop : MonoBehaviour
     void Update() {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetMouseButtonDown(0)) {
-            if (col && col == Physics2D.OverlapPoint(mousePosition)) {
+            if (col == Physics2D.OverlapPoint(mousePosition)) {
                 canMove = true;
                 targetJoint.enabled = true;
             } else {
@@ -44,6 +43,7 @@ public class DragAndDrop : MonoBehaviour
             targetJoint.enabled = false;
         }
         cursorHandle(mousePosition);
+        Debug.Log(canMove);
     }
 
     void cursorHandle(Vector2 mousePosition) {

@@ -20,34 +20,27 @@ public class UILogic : MonoBehaviour
     public float timeLeft = 60f;
     public int score = 0;
 
-    private void Awake()
-    {
+    private void Awake() {
         instance = this;
     }
 
-    private void Start()
-    {
+    private void Start() {
         slider = volumeSlider.GetComponent<Slider>();
         slider.value = PlayerPrefs.GetFloat("volumePref", 1f);
     }
 
-    private void Update()
-    {
+    private void Update() {
         timeLeft -= Time.deltaTime;
         timeLeftText.text = "NEXT IN: " + Mathf.Ceil(timeLeft).ToString();
     }
 
-    public void UpScore()
-    {
+    public void UpScore() {
         score += 5;
         timeLeft++;
         scoreText.text = "SCORE: " + score.ToString();
     }
 
-    public void DownScore()
-    {
-        // Uncommennt this for downscore:
-        // score -= 2;
+    public void DownScore() {
         scoreText.text = "SCORE: " + score.ToString();
     }
 
@@ -79,8 +72,7 @@ public class UILogic : MonoBehaviour
         volumeText.text = "VOLUME: " + vol.ToString() + "%";
     }
 
-    public void menuLoad()
-    {
+    public void menuLoad() {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }
