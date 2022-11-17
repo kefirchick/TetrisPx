@@ -26,6 +26,7 @@ TagManager:
   - OnLine18
   - OnLine19
   - OnLine20
+  - Figure
   layers:
   - Default
   - TransparentFX

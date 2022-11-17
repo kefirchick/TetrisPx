@@ -5,6 +5,7 @@ using UnityEngine;
 public class LineEraseLogic : MonoBehaviour
 {
     public GameObject[] arrayOfBlocks;
+    public GameObject[] arrayOfFigures;
     public ParticleSystem explosion;
     public float lineLength;
 
@@ -25,6 +26,7 @@ public class LineEraseLogic : MonoBehaviour
     }
     void Update()
     {
+        garbageHandle();
         arrayOfBlocks = GameObject.FindGameObjectsWithTag("Block");
         for (float y = lowestLevel; y < 20f; y += 0.1f)
         {
@@ -68,5 +70,12 @@ public class LineEraseLogic : MonoBehaviour
         main.startColor = blockColor;
         Destroy(destroyBlocks);
         UILogic.instance.UpScore();
+    }
+
+    void garbageHandle() {
+        arrayOfFigures = GameObject.FindGameObjectsWithTag("Figure");
+        foreach (GameObject figure in arrayOfFigures) {
+            if (figure.transform.childCount == 0) Destroy(figure);
+        }
     }
 }
