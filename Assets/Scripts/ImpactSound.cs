@@ -18,7 +18,7 @@ public class ImpactSound : MonoBehaviour
             if (soundVolume > 0.5f) soundVolume = 0.5f;
             GetComponent<AudioSource>().volume = soundVolume;
             GetComponent<AudioSource>().pitch = Random.Range(0.7f, 1.3f);
-            impact.Play();
+            if (GetComponent<AudioSource>().isActiveAndEnabled) impact.Play();
         }
     }
 }
