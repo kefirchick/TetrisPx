@@ -43,22 +43,21 @@ public class DragAndDrop : MonoBehaviour
             targetJoint.enabled = false;
         }
         cursorHandle(mousePosition);
-        Debug.Log(canMove);
     }
 
     void cursorHandle(Vector2 mousePosition) {
         if (canMove && !isCursor) {
-            cursorInstance = Instantiate(cursorPrefab, mousePosition, Quaternion.identity);
+            // cursorInstance = Instantiate(cursorPrefab, mousePosition, Quaternion.identity);
             isCursor = true;
         } else if (canMove && isCursor) {
-            cursorInstance.transform.position = mousePosition;
+            // cursorInstance.transform.position = mousePosition;
             float xShift = mousePosition.x - transform.position.x;
             float yShift = mousePosition.y - transform.position.y;
             float shift =  xShift * xShift + yShift * yShift;
-            cursorInstance.transform.Rotate(0f, 0f, 2f + shift, Space.Self);
+            // cursorInstance.transform.Rotate(0f, 0f, 2f + shift, Space.Self);
             dragSoundPlay(shift);
         } else {
-            Destroy(cursorInstance);
+            // Destroy(cursorInstance);
             isCursor = false;
         }
     }

@@ -655,7 +655,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Game
+  m_Text: MAIN MENU
 --- !u!222 &1396516840
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -875,7 +875,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.7, g: 0.21000001, b: 0.21000001, a: 1}
+    m_PressedColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.7, g: 0.21000001, b: 0.21000001, a: 1}
+    m_PressedColor: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1032,7 +1032,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 774190709}
         m_TargetAssemblyTypeName: MenuLogic, Assembly-CSharp
-        m_MethodName: Game1Start
+        m_MethodName: toMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
