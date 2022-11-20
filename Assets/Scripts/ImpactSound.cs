@@ -8,8 +8,10 @@ public class ImpactSound : MonoBehaviour
 
     private float soundVolume;
 
-    void OnCollisionEnter2D (Collision2D collision) {
-        if (collision.relativeVelocity.magnitude > 3) {
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.relativeVelocity.magnitude > 3)
+        {
             soundVolume = collision.relativeVelocity.magnitude / 40;
             if (soundVolume > 0.5f) soundVolume = 0.5f;
             GetComponent<AudioSource>().volume = soundVolume;

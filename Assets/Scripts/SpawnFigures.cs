@@ -38,14 +38,12 @@ public class SpawnFigures : MonoBehaviour
 
     void Update()
     {
-        //Spawn random figure in time interval
         if (isSpawn != true)
         {
             Invoke("Spawn", spawnTime);
             isSpawn = true;
         }
 
-        //Increasing spawn speed
         if (isSpeedIncrease != true)
         {
             Invoke("speedIncrease", 30);
@@ -53,18 +51,15 @@ public class SpawnFigures : MonoBehaviour
         }
     }
 
-    //Spawn random figure in time interval
     void Spawn()
     {
         GameObject block;
 
         if (nextFigureNumb >= 0) {
-            // Instantiating figure
             spawnSound.Play();
             figure = Instantiate(figures[nextFigureNumb], new Vector3(5, 26, 0), nextFigureRot);
             figure.transform.localScale = scaleVector;
 
-            //Painting instanciated figure
             randomColour = Random.Range(0f, 1f);
             for (int i = 0; i < figure.transform.childCount; i++)
             {
@@ -72,15 +67,13 @@ public class SpawnFigures : MonoBehaviour
                 block.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(randomColour, 0.7f, 1f);
             }
         }
-        isSpawn = false; //To start a new spawn cycle
+        isSpawn = false;
         createNextFigure();
         UILogic.instance.SetTimer(spawnTime);
     }
 
     void speedIncrease()
     {
-        // Uncomment this for growing difficulty:
-        // if (spawnTime > 0) spawnTime--;
         isSpeedIncrease = false;
     }
 

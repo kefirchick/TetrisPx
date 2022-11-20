@@ -19,7 +19,7 @@ public class gyroAndAcc : MonoBehaviour
 
     void Update()
     {
-        if (SystemInfo.supportsGyroscope && PlayerPrefs.GetInt("gyroPref", 0) == 1) 
+        if (SystemInfo.supportsGyroscope && PlayerPrefs.GetInt("gyroPref", 0) == 1)
         {
             xGravity = Input.gyro.gravity.x * 10;
             yGravity = Input.gyro.gravity.y * 10;

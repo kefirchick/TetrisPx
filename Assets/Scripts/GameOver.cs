@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class GameOver : MonoBehaviour
 {
     public Text yourScore;
-    
-    void Start() {
+
+    void Start()
+    {
         yourScore.text = "Your score: " + PlayerPrefs.GetInt("YourScore").ToString();
     }
 }
